@@ -24,7 +24,7 @@ hr {
     height: 147px;
     
     /* Text */
-    background-color: rgb(156, 189, 156);
+    /* background-color: rgb(156, 189, 156); */
     font-size: 150px;
     display: flex;
     justify-content: center; 
@@ -32,27 +32,95 @@ hr {
 }
 
 .winner {
-    background-color: lightgray;
-    color: red;
+    background-color: #747474;
+    color: #07DAC0;
 }
 
 
 .horizontal-line {
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid #fff;
 }
 
 .vertical-line {
-    border-right: 3px solid black;
+    border-right: 3px solid #fff;
 }
 
-.changePx {
-    visibility: hidden;
-}
-
-.hide {
+ .hide {
     display: none;
 }
 
 .board1 {
+    color: #F4EBD0;
+    background-color: #B68D40;
+    font-size: 30px;
+
+} 
+
+.playerColor {
+    color: red;
+}
+
+
+.draw {
     display: none;
+}
+
+.drawShow {
+    font-size: 70px;
+    position: absolute;
+    top: 30%;
+    left: 42%;
+    z-index: 1;
+    background-color: #F4EBD0;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+
+.restartG {
+    background-color: #B68D40; 
+    color: #ffff; 
+    border: 2px solid #ffff;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer; 
+    border-radius: 5px;
+  }
+  
+  .restartG:hover {
+    background-color: #555555;
+    color: white;
+  }
+  
+
+  
+.changeP {
+      background-color: #B68D40; 
+      color: #ffff; 
+      border: 2px solid #ffff;
+      padding: 5px 5px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer; 
+      border-radius: 5px;
+    }
+    
+.changeP:hover {
+      background-color: #555555;
+      color: white;
+    }
+
+.playwho {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
