@@ -9,10 +9,10 @@ const restartG = document.getElementById("restartGame");
 const homeP = document.getElementById("homePage");
 const playwho = document.querySelector("#playerTurn");
 const playGame = document.querySelector("#playGame");
-const draw = document.getElementById("draw");
+const previous = document.getElementById("previous");
+const next = document.getElementById("nextMove");
 const gameOversound = new Audio("audio/click.wav");
 
-box1 = board
 
 board = [
     [' ', ' ', ' '],
@@ -45,14 +45,12 @@ function setGame() {
             }
             if (c == 0 || c == 1) {
                 tile.classList.add("vertical-line");
+                
             } 
         }
         
     }
 }
-
-
-
 
 
 function setTile() {
@@ -69,14 +67,14 @@ function setTile() {
         return;
     }
 
-    if (board[0][0] != null) {
-        
-        console.log(board)
-    } 
-
+ 
     
     board[r][c] = currPlayer; //pwede iclick 
     this.innerText = currPlayer; //kung kaninong turn, un ang mag occupy
+
+    moves.push(JSON.parse(JSON.stringify(board)));
+    console.log(board)
+    console.log(moves)
 
     //change players
     if (currPlayer == playerO) {
@@ -93,7 +91,7 @@ function setTile() {
     if (gameOver) {
         return;
     }
-   
+
     checkWinner();
 }
 
@@ -107,7 +105,13 @@ function checkWinner() {
             for (let i = 0; i < 3; i++) {
                 let tile = document.getElementById(r.toString() + "-" + i.toString());
                 tile.classList.add("winner");
-                playwho.textContent = `Player ${currPlayer}'s turn`;
+                // playwho.textContent = `Player ${currPlayer}'s turn`;
+                previous.classList.remove('prev');
+                previous.classList.add('restartG');
+                next.classList.remove('next');
+                next.classList.add('nextBG');
+               
+                
             }
             gameOver = true;
             return;
@@ -121,6 +125,10 @@ function checkWinner() {
             for (let i = 0; i < 3; i++) {
                 let tile = document.getElementById(i.toString() + "-" + c.toString());                
                 tile.classList.add("winner");
+                previous.classList.remove('prev');
+                previous.classList.add('restartG');
+                next.classList.remove('next');
+                next.classList.add('nextBG');
             }
             gameOver = true;
             return;
@@ -130,8 +138,12 @@ function checkWinner() {
     //diagonal 
     if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ') {
         for (let i = 0; i < 3; i++) {
-            let tile = document.getElementById(i.toString() + "-" + i.toString());                
-            tile.classList.add("winner");
+                let tile = document.getElementById(i.toString() + "-" + i.toString());                
+                tile.classList.add("winner");
+                previous.classList.remove('prev');
+                previous.classList.add('restartG');
+                next.classList.remove('next');
+                next.classList.add('nextBG');
         }
         gameOver = true;
         return;
@@ -139,6 +151,10 @@ function checkWinner() {
 
     //other diagonal 
     if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ') {
+                previous.classList.remove('prev');
+                previous.classList.add('restartG');
+                next.classList.remove('next');
+                next.classList.add('nextBG');
         //0-2
         let tile = document.getElementById("0-2");                
         tile.classList.add("winner");
@@ -152,6 +168,7 @@ function checkWinner() {
         tile.classList.add("winner");
         gameOver = true;
         return;
+        
     }
 
     // if all tiles are taken = draw
@@ -165,7 +182,6 @@ function checkWinner() {
     } 
 
 
-
     if (board[0][0] != ' ' || board[0][1] != ' ' || board[0][2] != ' ' || board[1][0] != ' ' || board[1][1] != ' ' || board[1][2] != ' ' || board[2][0] != ' ' || board[2][1] != ' ' || board[2][2] != ' ') {
         
         changeP.classList.add('hide');
@@ -173,9 +189,26 @@ function checkWinner() {
         return;
     } 
 
+
+     // moves.push(JSON.parse(JSON.stringify(board)));
+
+
 }
 
-// 
+
+// previous.addEventListener('click', function () {
+//     if(board[0][0] != null) {
+//     board.pop();
+//     moves.push(board);
+//     console.log(board);
+//     console.log(moves)
+//     board = [
+//         [' ', ' ', ' '],
+//         [' ', ' ', ' '],
+//         [' ', ' ', ' ']
+//     ]
+//     }
+// });
 
 
 
@@ -191,7 +224,6 @@ document.getElementById('changePlayer').onclick = function(){
     return;
 
 }
-
 
 
 

@@ -25,7 +25,7 @@ hr {
     
     /* Text */
     /* background-color: rgb(156, 189, 156); */
-    font-size: 150px;
+    font-size: 70px;
     display: flex;
     justify-content: center; 
     align-items: center;    
@@ -123,4 +123,30 @@ hr {
     font-size: 20px;
     margin-top: 5px;
     margin-bottom: 5px;
+    font-weight: bold;
 }
+
+.prev, .next {
+    display: none;
+}
+
+
+.nextBG {
+    background-color: #B68D40; 
+    color: #ffff; 
+    border: 2px solid #ffff;
+    padding: 5px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer; 
+    border-radius: 5px;
+  }
+
+  .nextBG:hover {
+    background-color: #555555;
+    color: white;
+  }
