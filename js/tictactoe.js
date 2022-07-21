@@ -23,6 +23,10 @@ board = [
 
 moves = [];
 
+moves2 = []; 
+
+movesCounter = -1;
+
 window.onload = function() {
     setGame();
 }
@@ -58,6 +62,9 @@ function setTile() {
         return;
     }
 
+    movesCounter += 1;
+    console.log(movesCounter);
+
     let coords = this.id.split("-");    //ex) "1-2" -> ["1", "2'"]
     let r = parseInt(coords[0]);
     let c = parseInt(coords[1]);
@@ -73,7 +80,6 @@ function setTile() {
     this.innerText = currPlayer; //kung kaninong turn, un ang mag occupy
 
     moves.push(JSON.parse(JSON.stringify(board)));
-    console.log(board)
     console.log(moves)
 
     //change players
@@ -152,7 +158,7 @@ function checkWinner() {
     //other diagonal 
     if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ') {
                 previous.classList.remove('prev');
-                previous.classList.add('restartG');
+                previous.classList.add('restartG'); 
                 next.classList.remove('next');
                 next.classList.add('nextBG');
         //0-2
@@ -236,3 +242,33 @@ function restartGame(){
 restartG.addEventListener('click', restartGame);
 
 
+
+function previousButton(){
+    moves2 = moves[movesCounter - 1];
+    movesCounter --;
+    console.log(moves2);
+    for (let r = 0; r <=2 ; r++) {
+        for (let c = 0; c<=2; c++){
+            let tileOne = document.getElementById(r.toString() + "-" + c.toString());
+            tileOne.innerText = moves2[r][c];
+            // console.log(moves2[r][c]);
+        }
+    }
+}
+previous.addEventListener('click', previousButton);
+
+
+
+function nextButton(){
+    moves2 = moves[movesCounter + 1];
+    movesCounter ++;
+    console.log(moves2);
+    for (let r = 0; r <=2 ; r++) {
+        for (let c = 0; c<=2; c++){
+            let tileOne = document.getElementById(r.toString() + "-" + c.toString());
+            tileOne.innerText = moves2[r][c];
+            // console.log(moves2[r][c]);
+        }
+    }
+}
+next.addEventListener('click', nextButton);
