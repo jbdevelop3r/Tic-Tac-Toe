@@ -11,9 +11,14 @@ const playwho = document.querySelector("#playerTurn");
 const playGame = document.querySelector("#playGame");
 const previous = document.getElementById("previous");
 const next = document.getElementById("nextMove");
-const gameOversound = new Audio("audio/click.wav");
 const gameEnd = document.getElementById("gameover");
 const noWinner = document.getElementById("noWinner");
+
+const gameOversound = new Audio("audio/click.wav");
+
+const winnerSound = new Audio("audio/winner2.mp3");
+
+const drawSound = new Audio("audio/draw.mp3");
 
 
 
@@ -124,6 +129,8 @@ function checkWinner() {
                 playwho.classList.add('gameOver');
                 gameEnd.classList.remove('gameOver');
                 gameEnd.classList.add('gameOverShow');
+
+                winnerSound.play();
                
                 
             }
@@ -147,6 +154,8 @@ function checkWinner() {
                 playwho.classList.add('gameOver');
                 gameEnd.classList.remove('gameOver');
                 gameEnd.classList.add('gameOverShow');
+                winnerSound.play();
+                
               
             }
             gameOver = true;
@@ -166,7 +175,8 @@ function checkWinner() {
                 next.classList.add('nextBG');
                 playwho.classList.add('gameOver');
                 gameEnd.classList.remove('gameOver');
-                gameEnd.classList.add('gameOverShow');        
+                gameEnd.classList.add('gameOverShow');  
+                winnerSound.play();      
         }
         gameOver = true;
         counterTwo = movesCounter;
@@ -182,6 +192,7 @@ function checkWinner() {
                 playwho.classList.add('gameOver');
                 gameEnd.classList.remove('gameOver');
                 gameEnd.classList.add('gameOverShow');
+                winnerSound.play();
                 
         //0-2
         let tile = document.getElementById("0-2");                
@@ -212,6 +223,7 @@ function checkWinner() {
         previous.classList.add('restartG');
         next.classList.remove('next');
         next.classList.add('nextBG');
+        drawSound.play();
         gameOver = true;
         counterTwo = movesCounter;
         return;
