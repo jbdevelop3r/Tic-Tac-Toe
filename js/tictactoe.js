@@ -12,6 +12,9 @@ const playGame = document.querySelector("#playGame");
 const previous = document.getElementById("previous");
 const next = document.getElementById("nextMove");
 const gameOversound = new Audio("audio/click.wav");
+const gameEnd = document.getElementById("gameover");
+const noWinner = document.getElementById("noWinner");
+
 
 
 board = [
@@ -21,11 +24,14 @@ board = [
 ]
 
 
-moves = [];
+let moves = [];
 
-moves2 = []; 
+let moves2 = []; 
 
-movesCounter = -1;
+let movesCounter = -1;
+
+let counterTwo = 0;
+
 
 window.onload = function() {
     setGame();
@@ -115,11 +121,14 @@ function checkWinner() {
                 previous.classList.add('restartG');
                 next.classList.remove('next');
                 next.classList.add('nextBG');
-                playwho.textContent = `GAME OVER`;
+                playwho.classList.add('gameOver');
+                gameEnd.classList.remove('gameOver');
+                gameEnd.classList.add('gameOverShow');
                
                 
             }
             gameOver = true;
+            counterTwo = movesCounter;
             return;
         }
     }
@@ -135,9 +144,13 @@ function checkWinner() {
                 previous.classList.add('restartG');
                 next.classList.remove('next');
                 next.classList.add('nextBG');
-                playwho.textContent = `GAME OVER`;
+                playwho.classList.add('gameOver');
+                gameEnd.classList.remove('gameOver');
+                gameEnd.classList.add('gameOverShow');
+              
             }
             gameOver = true;
+            counterTwo = movesCounter;
             return;
         }
     }
@@ -151,9 +164,12 @@ function checkWinner() {
                 previous.classList.add('restartG');
                 next.classList.remove('next');
                 next.classList.add('nextBG');
-                playwho.textContent = `GAME OVER`;
+                playwho.classList.add('gameOver');
+                gameEnd.classList.remove('gameOver');
+                gameEnd.classList.add('gameOverShow');        
         }
         gameOver = true;
+        counterTwo = movesCounter;
         return;
     }
 
@@ -163,7 +179,10 @@ function checkWinner() {
                 previous.classList.add('restartG'); 
                 next.classList.remove('next');
                 next.classList.add('nextBG');
-                playwho.textContent = `GAME OVER`;
+                playwho.classList.add('gameOver');
+                gameEnd.classList.remove('gameOver');
+                gameEnd.classList.add('gameOverShow');
+                
         //0-2
         let tile = document.getElementById("0-2");                
         tile.classList.add("winner");
@@ -183,14 +202,18 @@ function checkWinner() {
     // if all tiles are taken = draw
     if (board[0][0] != '' && board[0][1] != ' ' && board[0][2] != ' ' && board[1][0] != ' ' && board[1][1] != ' ' && board[1][2] != ' ' && board[2][0] != ' ' && board[2][1] != ' ' && board[2][2] != ' ') {
         
-        draw.classList.remove('draw')
-        draw.classList.add('drawShow')
-        playwho.textContent = "NO WINNER";
+        // draw.classList.remove('draw')
+        // draw.classList.add('drawShow')
+        playwho.classList.add('gameOver');
+        noWinner.classList.remove('draw');
+        noWinner.classList.add('drawShow');  
+
         previous.classList.remove('prev');
         previous.classList.add('restartG');
         next.classList.remove('next');
         next.classList.add('nextBG');
         gameOver = true;
+        counterTwo = movesCounter;
         return;
     } 
 
@@ -258,22 +281,12 @@ function previousButton(){
         for (let c = 0; c<=2; c++){
             let tileOne = document.getElementById(r.toString() + "-" + c.toString());
             tileOne.innerText = moves2[r][c];
-            // console.log(moves2[r][c]);
+            next.disabled = false;
+            next.classList.add('nextBG');
             if (movesCounter === 0) {
-                // previous.classList.add('prev');
                 previous.disabled = true;
                 previous.classList.remove('restartG');
             } 
-
-            // if (movesCounter >= 5) {
-            //     next.classList.add('prev');
-            //     // previous.disabled = true;
-            // } 
-
-            // if (gameOver === true && movesCounter === 1) {
-            //     previous.classList.remove('prev');
-            // }
-            console.log(movesCounter);
         }
     }
 }
@@ -291,8 +304,12 @@ function nextButton(){
             tileOne.innerText = moves2[r][c];
             previous.disabled = false;
             previous.classList.add('restartG');
-            // console.log(moves2[r][c]);
         }
+    }
+    if (movesCounter === counterTwo) {
+        next.disabled = true;
+        next.classList.remove('nextBG');
+        console.log(next.disabled);
     }
 }
 next.addEventListener('click', nextButton);
