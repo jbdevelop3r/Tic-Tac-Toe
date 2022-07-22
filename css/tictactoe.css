@@ -1,34 +1,42 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    background-color: #0C2D48;
-    font-family: 'Indie Flower', cursive;
+    /* background-color: #0C2D48; */
+    background: url('https://giphy.com/embed/jKVwHgHhRaZm8FRkIj');
+    font-family: 'Rubik Moonrocks', cursive;
 }
 
 hr {
-    width: 500px;
-    height: 2px;
+    width: 450px;
+    height: 1px;
     background-color: #fff;
     margin-bottom: 0px;
 }
 
 .btn-mainContainer {
-    margin-top: 40px;
+    margin-top: 80px;
 }
 
 
 #board {
-    width: 450px;
-    height: 450px;
+    width: 347px;
+    height: 346px;
     /* background-color: gray; */
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    border: 2px solid white;
+    background-position: center;
+    background-size: cover;
+    border-radius: 2px;
+    /* background-image: url(/images/brick.jpg); */
+    background-color: #062a42;
+    margin-bottom: 20px;
 }
 
 .tile {
-    width: 147px;
-    height: 147px;
+    width: 115px;
+    height: 115px;
     
     /* Text */
     /* background-color: rgb(156, 189, 156); */
@@ -40,17 +48,17 @@ hr {
 }
 
 .winner {
-    background-color: #145DA0;
+    background-color: #31422f;
     color: #ffff;
 }
 
 
 .horizontal-line {
-    border-bottom: 3px solid #fff;
+    border-bottom: 1px solid #fff;
 }
 
 .vertical-line {
-    border-right: 3px solid #fff;
+    border-right: 1px solid #fff;
 }
 
  .hide {
@@ -58,47 +66,26 @@ hr {
 }
 
 .board1 {
-    color: #260101;
+    color: #fff;
     background-color: #2E8BC0;
     font-size: 30px;
 
 } 
 
-.playerColor {
-    color: red;
-}
-
-
-/* .draw {
-    display: none;
-}
-
-.drawShow {
-    font-size: 20px;
-    position: absolute;
-    top: 10%;
-    left: 46%;
-    z-index: 1;
-    background-color: #F4EBD0;
-    border: 2px solid black;
-    padding: 0 20px;
-} */
-
 
 .restartG {
-    background-color: #2E8BC0; 
-    color: #ffff; 
-    border: 2px solid #ffff;
-    padding: 5px 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer; 
-    border-radius: 5px;
-    font-family: 'Indie Flower', cursive;
+  background-color: #274472; 
+  color: #ffff; 
+  border: 2px solid #ffff;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer; 
+  border-radius: 5px;
+  font-family: 'Rubik Moonrocks', cursive;
   }
   
   .restartG:hover {
@@ -106,22 +93,23 @@ hr {
     color: white;
   }
   
-
+.invisible {
+  visibility: hidden;
+}
   
 .changeP {
-      background-color: #2E8BC0; 
-      color: #ffff; 
-      border: 2px solid #ffff;
-      padding: 5px 5px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      transition-duration: 0.4s;
-      cursor: pointer; 
-      border-radius: 5px;
-      font-family: 'Indie Flower', cursive;
+  background-color: #274472; 
+  color: #ffff; 
+  border: 2px solid #ffff;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer; 
+  border-radius: 5px;
+  font-family: 'Rubik Moonrocks', cursive;
     }
     
 .changeP:hover {
@@ -143,10 +131,9 @@ hr {
 
 
 .nextBG {
-    background-color: #2E8BC0; 
+    background-color: #274472; 
     color: #ffff; 
     border: 2px solid #ffff;
-    padding: 5px 22px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -155,7 +142,7 @@ hr {
     transition-duration: 0.4s;
     cursor: pointer; 
     border-radius: 5px;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Rubik Moonrocks', cursive;
   }
 
   .nextBG:hover {
@@ -188,7 +175,7 @@ hr {
     font-weight: bold;
     color: #fff;
     animation: blinker 1s linear infinite;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Rubik Moonrocks', cursive;
   }
 
 
@@ -201,3 +188,17 @@ hr {
       opacity: 0;
     }
   }
+
+  .back-video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+  }
+
+
+.toggle-btn {
+  margin-top: 20px;
+  
+}

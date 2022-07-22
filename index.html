@@ -16,14 +16,19 @@
       href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Josefin+Sans:wght@100&family=Kdam+Thmor+Pro&family=Open+Sans:wght@500&family=PT+Sans+Narrow&family=Poppins:wght@300&family=Roboto+Condensed:wght@300&family=Roboto:wght@100&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/eb35e92fca.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <div class="btn-mainContainer">
-      <button class="changeP" id="changePlayer">Change Player</button>
-      <button class="restartG" id="restartGame">Restart Game</button>
+    <video autoplay loop muted class="back-video">
+      <source src="images/bgVideo.mp4" type="video/mp4" />
+    </video>
 
-      <button class="prev" id="previous">Previous</button>
-      <button class="next" id="nextMove">Next</button>
+    <i class="fa-solid fa-send-backward"></i>
+
+    <div class="btn-mainContainer">
       <p class="draw" id="draw"></p>
     </div>
 
@@ -35,5 +40,23 @@
     <br />
     <!-- 3x3 -->
     <div class="board1" id="board"></div>
+
+    <div class="toggle-btn">
+      <button class="changeP" id="changePlayer">
+        <i class="fa-solid fa-people-arrows-left-right"></i>
+      </button>
+      <button class="prev" id="previous">
+        <i class="fa-solid fa-arrow-rotate-left"></i>
+      </button>
+      <button class="next" id="nextMove">
+        <i class="fa-solid fa-arrow-rotate-right"></i>
+      </button>
+      <button class="restartG" id="restartGame">
+        <i class="fa-solid fa-arrows-rotate"></i>
+      </button>
+
+      <!-- <i class="prev" class="fa-solid fa-backward" id="previous"></i>
+      <i class="next" class="fa-solid fa-forward" id="nextMove"></i> -->
+    </div>
   </body>
 </html>

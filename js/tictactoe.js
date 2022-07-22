@@ -123,7 +123,7 @@ function checkWinner() {
                 tile.classList.add("winner");
                 // playwho.textContent = `Player ${currPlayer}'s turn`;
                 previous.classList.remove('prev');
-                previous.classList.add('restartG');
+                previous.classList.add('nextBG');
                 next.classList.remove('next');
                 next.classList.add('nextBG');
                 playwho.classList.add('gameOver');
@@ -148,7 +148,7 @@ function checkWinner() {
                 let tile = document.getElementById(i.toString() + "-" + c.toString());                
                 tile.classList.add("winner");
                 previous.classList.remove('prev');
-                previous.classList.add('restartG');
+                previous.classList.add('nextBG');
                 next.classList.remove('next');
                 next.classList.add('nextBG');
                 playwho.classList.add('gameOver');
@@ -170,7 +170,7 @@ function checkWinner() {
                 let tile = document.getElementById(i.toString() + "-" + i.toString());                
                 tile.classList.add("winner");
                 previous.classList.remove('prev');
-                previous.classList.add('restartG');
+                previous.classList.add('nextBG');
                 next.classList.remove('next');
                 next.classList.add('nextBG');
                 playwho.classList.add('gameOver');
@@ -186,7 +186,7 @@ function checkWinner() {
     //other diagonal 
     if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ') {
                 previous.classList.remove('prev');
-                previous.classList.add('restartG'); 
+                previous.classList.add('nextBG'); 
                 next.classList.remove('next');
                 next.classList.add('nextBG');
                 playwho.classList.add('gameOver');
@@ -206,7 +206,9 @@ function checkWinner() {
         tile = document.getElementById("2-0");                
         tile.classList.add("winner");
         gameOver = true;
+        counterTwo = movesCounter;
         return;
+        
         
     }
 
@@ -220,7 +222,7 @@ function checkWinner() {
         noWinner.classList.add('drawShow');  
 
         previous.classList.remove('prev');
-        previous.classList.add('restartG');
+        previous.classList.add('nextBG');
         next.classList.remove('next');
         next.classList.add('nextBG');
         drawSound.play();
@@ -237,27 +239,7 @@ function checkWinner() {
         return;
     } 
 
-
-     // moves.push(JSON.parse(JSON.stringify(board)));
-
-
 }
-
-
-// previous.addEventListener('click', function () {
-//     if(board[0][0] != null) {
-//     board.pop();
-//     moves.push(board);
-//     console.log(board);
-//     console.log(moves)
-//     board = [
-//         [' ', ' ', ' '],
-//         [' ', ' ', ' '],
-//         [' ', ' ', ' ']
-//     ]
-//     }
-// });
-
 
 
 document.getElementById('changePlayer').onclick = function(){
@@ -297,7 +279,7 @@ function previousButton(){
             next.classList.add('nextBG');
             if (movesCounter === 0) {
                 previous.disabled = true;
-                previous.classList.remove('restartG');
+                previous.classList.remove('nextBG');
             } 
         }
     }
@@ -315,7 +297,7 @@ function nextButton(){
             let tileOne = document.getElementById(r.toString() + "-" + c.toString());
             tileOne.innerText = moves2[r][c];
             previous.disabled = false;
-            previous.classList.add('restartG');
+            previous.classList.add('nextBG');
         }
     }
     if (movesCounter === counterTwo) {
