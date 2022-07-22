@@ -13,10 +13,16 @@ hr {
     margin-bottom: 0px;
 }
 
-.btn-mainContainer {
-    margin-top: 80px;
+.title {
+  color: #ffff;
+  font-size: 70px;
+  margin-bottom: 10px;
+  margin-top: 60px;
 }
 
+.btn-mainContainer {
+    margin-top: 20px;
+}
 
 #board {
     width: 347px;
@@ -37,9 +43,6 @@ hr {
 .tile {
     width: 115px;
     height: 115px;
-    
-    /* Text */
-    /* background-color: rgb(156, 189, 156); */
     font-size: 70px;
     display: flex;
     justify-content: center; 
@@ -50,6 +53,7 @@ hr {
 .winner {
     background-color: #31422f;
     color: #ffff;
+    
 }
 
 

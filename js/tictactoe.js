@@ -18,7 +18,9 @@ const gameOversound = new Audio("audio/click.wav");
 
 const winnerSound = new Audio("audio/winner2.mp3");
 
-const drawSound = new Audio("audio/draw.mp3");
+const clickError = new Audio("audio/draw.mp3");
+
+const drawSound = new Audio("audio/noWinner.mp3");
 
 
 
@@ -82,6 +84,7 @@ function setTile() {
 
     if (board[r][c] != ' ') { 
         //already taken spot
+        clickError.play();
         return;
     }
 
@@ -129,6 +132,8 @@ function checkWinner() {
                 playwho.classList.add('gameOver');
                 gameEnd.classList.remove('gameOver');
                 gameEnd.classList.add('gameOverShow');
+                next.disabled = true;
+                next.classList.remove('nextBG');
 
                 winnerSound.play();
                
@@ -154,6 +159,8 @@ function checkWinner() {
                 playwho.classList.add('gameOver');
                 gameEnd.classList.remove('gameOver');
                 gameEnd.classList.add('gameOverShow');
+                next.disabled = true;
+                next.classList.remove('nextBG');
                 winnerSound.play();
                 
               
@@ -175,7 +182,9 @@ function checkWinner() {
                 next.classList.add('nextBG');
                 playwho.classList.add('gameOver');
                 gameEnd.classList.remove('gameOver');
-                gameEnd.classList.add('gameOverShow');  
+                gameEnd.classList.add('gameOverShow'); 
+                next.disabled = true;
+                next.classList.remove('nextBG'); 
                 winnerSound.play();      
         }
         gameOver = true;
@@ -192,6 +201,8 @@ function checkWinner() {
                 playwho.classList.add('gameOver');
                 gameEnd.classList.remove('gameOver');
                 gameEnd.classList.add('gameOverShow');
+                next.disabled = true;
+                next.classList.remove('nextBG');
                 winnerSound.play();
                 
         //0-2
@@ -226,6 +237,8 @@ function checkWinner() {
         next.classList.remove('next');
         next.classList.add('nextBG');
         drawSound.play();
+        next.disabled = true;
+        next.classList.remove('nextBG');
         gameOver = true;
         counterTwo = movesCounter;
         return;

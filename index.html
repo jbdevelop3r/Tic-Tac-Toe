@@ -7,7 +7,6 @@
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="css/tictactoe.css" />
     <script src="js/tictactoe.js" defer></script>
-    <!-- <script src="js/setTImeout.js" defer></script> -->
     <link rel="shortcut icon" href="#" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,21 +25,19 @@
       <source src="images/bgVideo.mp4" type="video/mp4" />
     </video>
 
-    <i class="fa-solid fa-send-backward"></i>
+    <p class="title">Tic Tac Toe</p>
 
     <div class="btn-mainContainer">
+      <p class="playwho" id="playerTurn"></p>
       <p class="draw" id="draw"></p>
+      <p class="gameOver" id="gameover">GAME OVER!</p>
+      <p class="draw" id="noWinner">DRAW!</p>
     </div>
-
-    <p class="playwho" id="playerTurn"></p>
-    <p class="gameOver" id="gameover">GAME OVER!</p>
-    <p class="draw" id="noWinner">DRAW!</p>
 
     <hr />
     <br />
-    <!-- 3x3 -->
-    <div class="board1" id="board"></div>
 
+    <div class="board1" id="board"></div>
     <div class="toggle-btn">
       <button class="changeP" id="changePlayer">
         <i class="fa-solid fa-people-arrows-left-right"></i>
@@ -54,9 +51,6 @@
       <button class="restartG" id="restartGame">
         <i class="fa-solid fa-arrows-rotate"></i>
       </button>
-
-      <!-- <i class="prev" class="fa-solid fa-backward" id="previous"></i>
-      <i class="next" class="fa-solid fa-forward" id="nextMove"></i> -->
     </div>
   </body>
 </html>
