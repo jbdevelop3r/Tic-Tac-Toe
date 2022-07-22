@@ -66,14 +66,15 @@ hr {
 }
 
 .drawShow {
-    font-size: 70px;
+    font-size: 20px;
     position: absolute;
-    top: 30%;
-    left: 42%;
+    top: 10%;
+    left: 46%;
     z-index: 1;
     background-color: #F4EBD0;
     border: 2px solid black;
-    border-radius: 10px;
+    /* border-radius: 10px; */
+    padding: 0 20px;
 }
 
 
@@ -120,15 +121,15 @@ hr {
     }
 
 .playwho {
-    font-size: 20px;
+    font-size: 30px;
     margin-top: 5px;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-/* .prev, .next {
+.prev, .next {
     display: none;
-} */
+}
 
 
 .nextBG {

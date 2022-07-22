@@ -74,7 +74,6 @@ function setTile() {
         return;
     }
 
- 
     
     board[r][c] = currPlayer; //pwede iclick 
     this.innerText = currPlayer; //kung kaninong turn, un ang mag occupy
@@ -116,6 +115,7 @@ function checkWinner() {
                 previous.classList.add('restartG');
                 next.classList.remove('next');
                 next.classList.add('nextBG');
+                playwho.textContent = `GAME OVER`;
                
                 
             }
@@ -135,6 +135,7 @@ function checkWinner() {
                 previous.classList.add('restartG');
                 next.classList.remove('next');
                 next.classList.add('nextBG');
+                playwho.textContent = `GAME OVER`;
             }
             gameOver = true;
             return;
@@ -150,6 +151,7 @@ function checkWinner() {
                 previous.classList.add('restartG');
                 next.classList.remove('next');
                 next.classList.add('nextBG');
+                playwho.textContent = `GAME OVER`;
         }
         gameOver = true;
         return;
@@ -161,6 +163,7 @@ function checkWinner() {
                 previous.classList.add('restartG'); 
                 next.classList.remove('next');
                 next.classList.add('nextBG');
+                playwho.textContent = `GAME OVER`;
         //0-2
         let tile = document.getElementById("0-2");                
         tile.classList.add("winner");
@@ -183,6 +186,10 @@ function checkWinner() {
         draw.classList.remove('draw')
         draw.classList.add('drawShow')
         playwho.textContent = "NO WINNER";
+        previous.classList.remove('prev');
+        previous.classList.add('restartG');
+        next.classList.remove('next');
+        next.classList.add('nextBG');
         gameOver = true;
         return;
     } 
@@ -252,6 +259,21 @@ function previousButton(){
             let tileOne = document.getElementById(r.toString() + "-" + c.toString());
             tileOne.innerText = moves2[r][c];
             // console.log(moves2[r][c]);
+            if (movesCounter === 0) {
+                // previous.classList.add('prev');
+                previous.disabled = true;
+                previous.classList.remove('restartG');
+            } 
+
+            // if (movesCounter >= 5) {
+            //     next.classList.add('prev');
+            //     // previous.disabled = true;
+            // } 
+
+            // if (gameOver === true && movesCounter === 1) {
+            //     previous.classList.remove('prev');
+            // }
+            console.log(movesCounter);
         }
     }
 }
@@ -267,6 +289,8 @@ function nextButton(){
         for (let c = 0; c<=2; c++){
             let tileOne = document.getElementById(r.toString() + "-" + c.toString());
             tileOne.innerText = moves2[r][c];
+            previous.disabled = false;
+            previous.classList.add('restartG');
             // console.log(moves2[r][c]);
         }
     }
