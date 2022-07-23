@@ -1,16 +1,15 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    /* background-color: #0C2D48; */
-    background: url('https://giphy.com/embed/jKVwHgHhRaZm8FRkIj');
-    font-family: 'Rubik Moonrocks', cursive;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  background: url('https://giphy.com/embed/jKVwHgHhRaZm8FRkIj');
+  font-family: 'Rubik Moonrocks', cursive;
 }
 
 hr {
-    width: 450px;
-    height: 1px;
-    background-color: #fff;
-    margin-bottom: 0px;
+  width: 450px;
+  height: 1px;
+  background-color: #fff;
+  margin-bottom: 0px;
 }
 
 .title {
@@ -26,53 +25,52 @@ hr {
 }
 
 #board {
-    width: 347px;
-    height: 346px;
-    /* background-color: gray; */
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    border: 2px solid white;
-    background-position: center;
-    background-size: cover;
-    border-radius: 2px;
-    background-color: #062a42;
-    margin-bottom: 20px;
+  width: 347px;
+  height: 346px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid white;
+  background-position: center;
+  background-size: cover;
+  border-radius: 2px;
+  background-color: #062a42;
+  margin-bottom: 20px;
 }
 
 .tile {
-    width: 115px;
-    height: 115px;
-    font-size: 70px;
-    display: flex;
-    justify-content: center; 
-    align-items: center;  
+  width: 115px;
+  height: 115px;
+  font-size: 70px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;  
       
 }
 
 .winner {
-    background-color: #31422f;
-    color: #ffff;
+  background-color: #31422f;
+  color: #ffff;
     
 }
 
 
 .horizontal-line {
-    border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #fff;
 }
 
 .vertical-line {
-    border-right: 1px solid #fff;
+   border-right: 1px solid #fff;
 }
 
  .hide {
-    display: none;
+  display: none;
 }
 
 .board1 {
-    color: #fff;
-    background-color: #2E8BC0;
-    font-size: 30px;
+  color: #fff;
+  background-color: #2E8BC0;
+  font-size: 30px;
 
 } 
 
@@ -92,10 +90,10 @@ hr {
   font-family: 'Rubik Moonrocks', cursive;
   }
   
-  .restartG:hover {
-    background-color: #555555;
-    color: white;
-  }
+.restartG:hover {
+  background-color: #555555;
+  color: white;
+}
   
 .invisible {
   visibility: hidden;
@@ -117,94 +115,93 @@ hr {
     }
     
 .changeP:hover {
-      background-color: #555555;
-      color: white;
-    }
+  background-color: #555555;
+  color: white;
+}
 
 .playwho {
-    font-size: 30px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #fff;
+  font-size: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #fff;
 }
 
 .prev, .next {
-    display: none;
+  display: none;
 }
 
 
 .nextBG {
-    background-color: #274472; 
-    color: #ffff; 
-    border: 2px solid #ffff;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer; 
-    border-radius: 5px;
-    font-family: 'Rubik Moonrocks', cursive;
-  }
+  background-color: #274472; 
+  color: #ffff; 
+  border: 2px solid #ffff;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer; 
+  border-radius: 5px;
+  font-family: 'Rubik Moonrocks', cursive;
+}
 
-  .nextBG:hover {
-    background-color: #555555;
-    color: white;
-  }
-
-
-  .gameOver {
-    display: none;
-  }
-
-  .gameOverShow {
-    font-size: 30px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #fff;
-    animation: blinker 1s linear infinite;
-  }
-
-  .draw {
-    display: none;
-  }
-
-  .drawShow {
-    font-size: 30px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #fff;
-    animation: blinker 1s linear infinite;
-    font-family: 'Rubik Moonrocks', cursive;
-  }
+.nextBG:hover {
+  background-color: #555555;
+  color: white;
+}
 
 
-  .blink {
-    animation: blinker 2s linear infinite;
-  }
+.gameOver {
+  display: none;
+}
+
+.gameOverShow {
+  font-size: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #fff;
+  animation: blinker 1s linear infinite;
+}
+
+.draw {
+  display: none;
+}
+
+.drawShow {
+  font-size: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #fff;
+  animation: blinker 1s linear infinite;
+  font-family: 'Rubik Moonrocks', cursive;
+}
+
+
+.blink {
+  animation: blinker 2s linear infinite;
+}
   
-  @keyframes blinker {
+@keyframes blinker {
     50% {
       opacity: 0;
     }
-  }
+}
 
-  .back-video {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    width: 100%;
-  }
+.back-video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+}
 
 
 .toggle-btn {
-  margin-top: 20px;
-  
+  margin-top: 20px;  
 }
 
 
@@ -223,7 +220,7 @@ hr {
   font-family: 'Rubik Moonrocks', cursive;
   }
   
-  .soundtrack:hover {
-    background-color: #555555;
-    color: white;
-  }
+.soundtrack:hover {
+  background-color: #555555;
+  color: white;
+}
