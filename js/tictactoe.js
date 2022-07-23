@@ -73,24 +73,21 @@ function setTile() {
     movesCounter += 1;
     console.log(movesCounter);
 
-    let coords = this.id.split("-");    //ex) "1-2" -> ["1", "2'"]
+    let coords = this.id.split("-");   
     let r = parseInt(coords[0]);
     let c = parseInt(coords[1]);
 
     if (board[r][c] != ' ') { 
-        //already taken spot
         clickError.play();
         return;
     }
 
     
-    board[r][c] = currPlayer; //pwede iclick 
-    this.innerText = currPlayer; //kung kaninong turn, un ang mag occupy
-
+    board[r][c] = currPlayer;
+    this.innerText = currPlayer; 
     moves.push(JSON.parse(JSON.stringify(board)));
     console.log(moves)
 
-    //change players
     if (currPlayer == playerO) {
         currPlayer = playerX;
         playwho.textContent = `Player ${currPlayer}'s turn`;
@@ -111,7 +108,6 @@ function setTile() {
 
 
 function checkWinner() {
-    //horizontally, check 3 rows
     for (let r = 0; r < 3; r++) {
         if (board[r][0] == board[r][1] && board[r][1] == board[r][2] && board[r][0] != ' ') {
             for (let i = 0; i < 3; i++) {
@@ -135,7 +131,6 @@ function checkWinner() {
         }
     }
 
-    //vertically, check 3 columns
     for (let c = 0; c < 3; c++) {
         if (board[0][c] == board[1][c] && board[1][c] ==  board[2][c] && board[0][c] != ' ') {
              for (let i = 0; i < 3; i++) {
@@ -158,7 +153,7 @@ function checkWinner() {
         }
     }
 
-    //diagonal 
+    
     if (board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' ') {
         for (let i = 0; i < 3; i++) {
                 let tile = document.getElementById(i.toString() + "-" + i.toString());                
@@ -179,7 +174,7 @@ function checkWinner() {
         return;
     }
 
-    //other diagonal 
+    
     if (board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' ') {
                 previous.classList.remove('prev');
                 previous.classList.add('nextBG'); 
@@ -192,15 +187,15 @@ function checkWinner() {
                 next.classList.remove('nextBG');
                 winnerSound.play();
                 
-        //0-2
+        
         let tile = document.getElementById("0-2");                
         tile.classList.add("winner");
 
-        //1-1
+        
         tile = document.getElementById("1-1");                
         tile.classList.add("winner");
 
-        //2-0
+        
         tile = document.getElementById("2-0");                
         tile.classList.add("winner");
         gameOver = true;
@@ -208,15 +203,11 @@ function checkWinner() {
         return; 
     }
 
-    // if all tiles are taken = draw
+   
     if (board[0][0] != ' ' && board[0][1] != ' ' && board[0][2] != ' ' && board[1][0] != ' ' && board[1][1] != ' ' && board[1][2] != ' ' && board[2][0] != ' ' && board[2][1] != ' ' && board[2][2] != ' ') {
-        
-        // draw.classList.remove('draw')
-        // draw.classList.add('drawShow')
         playwho.classList.add('gameOver');
         noWinner.classList.remove('draw');
         noWinner.classList.add('drawShow');  
-
         previous.classList.remove('prev');
         previous.classList.add('nextBG');
         next.classList.remove('next');
@@ -230,7 +221,6 @@ function checkWinner() {
     } 
 
     if (board[0][0] != ' ' || board[0][1] != ' ' || board[0][2] != ' ' || board[1][0] != ' ' || board[1][1] != ' ' || board[1][2] != ' ' || board[2][0] != ' ' || board[2][1] != ' ' || board[2][2] != ' ') {
-        
         changeP.classList.remove('changeP')
         changeP.disabled = true;
         return;
