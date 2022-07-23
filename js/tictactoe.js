@@ -13,6 +13,7 @@ const previous = document.getElementById("previous");
 const next = document.getElementById("nextMove");
 const gameEnd = document.getElementById("gameover");
 const noWinner = document.getElementById("noWinner");
+const soundtrip = document.getElementById("soundtrack");
 
 const gameOversound = new Audio("audio/click.wav");
 
@@ -21,6 +22,8 @@ const winnerSound = new Audio("audio/winner2.mp3");
 const clickError = new Audio("audio/draw.mp3");
 
 const drawSound = new Audio("audio/noWinner.mp3");
+
+const jovit = new Audio("audio/jovit.mp3");
 
 
 
@@ -290,6 +293,7 @@ function previousButton(){
             tileOne.innerText = moves2[r][c];
             next.disabled = false;
             next.classList.add('nextBG');
+            gameOversound.play();
             if (movesCounter === 0) {
                 previous.disabled = true;
                 previous.classList.remove('nextBG');
@@ -311,6 +315,7 @@ function nextButton(){
             tileOne.innerText = moves2[r][c];
             previous.disabled = false;
             previous.classList.add('nextBG');
+            gameOversound.play();
         }
     }
     if (movesCounter === counterTwo) {
@@ -320,3 +325,9 @@ function nextButton(){
     }
 }
 next.addEventListener('click', nextButton);
+
+
+
+document.getElementById('soundtrack').onclick = function(){
+    jovit.play();
+}
