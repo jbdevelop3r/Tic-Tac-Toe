@@ -18,6 +18,7 @@ hr {
   font-size: 70px;
   margin-bottom: 10px;
   margin-top: 60px;
+  text-shadow: 2px 2px 4px #f92323;
 }
 
 .btn-mainContainer {
@@ -35,7 +36,6 @@ hr {
     background-position: center;
     background-size: cover;
     border-radius: 2px;
-    /* background-image: url(/images/brick.jpg); */
     background-color: #062a42;
     margin-bottom: 20px;
 }
