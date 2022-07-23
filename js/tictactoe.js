@@ -4,6 +4,11 @@ var playerX = "X";
 var currPlayer = playerO;
 var gameOver = false;
 
+let moves = [];
+let moves2 = []; 
+let movesCounter = -1;
+let counterTwo = 0;
+
 const changeP = document.getElementById("changePlayer");
 const restartG = document.getElementById("restartGame");
 const homeP = document.getElementById("homePage");
@@ -16,13 +21,9 @@ const noWinner = document.getElementById("noWinner");
 const soundtrip = document.getElementById("soundtrack");
 
 const gameOversound = new Audio("audio/click.wav");
-
 const winnerSound = new Audio("audio/winner2.mp3");
-
 const clickError = new Audio("audio/draw.mp3");
-
 const drawSound = new Audio("audio/noWinner.mp3");
-
 const jovit = new Audio("audio/jovit.mp3");
 
 
@@ -32,15 +33,6 @@ board = [
     [' ', ' ', ' '],
     [' ', ' ', ' ']
 ]
-
-
-let moves = [];
-
-let moves2 = []; 
-
-let movesCounter = -1;
-
-let counterTwo = 0;
 
 
 window.onload = function() {
@@ -122,8 +114,6 @@ function checkWinner() {
     //horizontally, check 3 rows
     for (let r = 0; r < 3; r++) {
         if (board[r][0] == board[r][1] && board[r][1] == board[r][2] && board[r][0] != ' ') {
-            
-            //pag nameet ang condition, lagyan ng style ung tiles.
             for (let i = 0; i < 3; i++) {
                 let tile = document.getElementById(r.toString() + "-" + i.toString());
                 tile.classList.add("winner");
@@ -137,9 +127,7 @@ function checkWinner() {
                 gameEnd.classList.add('gameOverShow');
                 next.disabled = true;
                 next.classList.remove('nextBG');
-                winnerSound.play();
-               
-                
+                winnerSound.play();  
             }
             gameOver = true;
             counterTwo = movesCounter;
@@ -150,8 +138,7 @@ function checkWinner() {
     //vertically, check 3 columns
     for (let c = 0; c < 3; c++) {
         if (board[0][c] == board[1][c] && board[1][c] ==  board[2][c] && board[0][c] != ' ') {
-            
-            for (let i = 0; i < 3; i++) {
+             for (let i = 0; i < 3; i++) {
                 let tile = document.getElementById(i.toString() + "-" + c.toString());                
                 tile.classList.add("winner");
                 previous.classList.remove('prev');
@@ -164,8 +151,6 @@ function checkWinner() {
                 next.disabled = true;
                 next.classList.remove('nextBG');
                 winnerSound.play();
-                
-              
             }
             gameOver = true;
             counterTwo = movesCounter;
@@ -220,9 +205,7 @@ function checkWinner() {
         tile.classList.add("winner");
         gameOver = true;
         counterTwo = movesCounter;
-        return;
-        
-        
+        return; 
     }
 
     // if all tiles are taken = draw
@@ -246,7 +229,6 @@ function checkWinner() {
         return;
     } 
 
-
     if (board[0][0] != ' ' || board[0][1] != ' ' || board[0][2] != ' ' || board[1][0] != ' ' || board[1][1] != ' ' || board[1][2] != ' ' || board[2][0] != ' ' || board[2][1] != ' ' || board[2][2] != ' ') {
         
         changeP.classList.remove('changeP')
@@ -255,7 +237,6 @@ function checkWinner() {
     } 
 
 }
-
 
 document.getElementById('changePlayer').onclick = function(){
     if (currPlayer == playerO) {
@@ -269,9 +250,12 @@ document.getElementById('changePlayer').onclick = function(){
     }
     playwho.textContent = `Player ${currPlayer}'s turn`;
     return;
-
 }
 
+
+document.getElementById('soundtrack').onclick = function(){
+    jovit.play();
+}
 
 
 function restartGame(){
@@ -280,8 +264,9 @@ function restartGame(){
     });
 }
 
-restartG.addEventListener('click', restartGame);
 
+
+restartG.addEventListener('click', restartGame);
 
 
 function previousButton(){
@@ -305,7 +290,6 @@ function previousButton(){
 previous.addEventListener('click', previousButton);
 
 
-
 function nextButton(){
     moves2 = moves[movesCounter + 1];
     movesCounter ++;
@@ -327,8 +311,3 @@ function nextButton(){
 }
 next.addEventListener('click', nextButton);
 
-
-
-document.getElementById('soundtrack').onclick = function(){
-    jovit.play();
-}
