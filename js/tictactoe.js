@@ -137,7 +137,6 @@ function checkWinner() {
                 gameEnd.classList.add('gameOverShow');
                 next.disabled = true;
                 next.classList.remove('nextBG');
-
                 winnerSound.play();
                
                 
@@ -260,10 +259,12 @@ function checkWinner() {
 
 document.getElementById('changePlayer').onclick = function(){
     if (currPlayer == playerO) {
-        currPlayer = playerX;    
+        currPlayer = playerX; 
+        gameOversound.play();   
     } 
     else {
         currPlayer = playerO;
+        gameOversound.play();
         
     }
     playwho.textContent = `Player ${currPlayer}'s turn`;
